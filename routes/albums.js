@@ -1,20 +1,19 @@
-const router = require('express').Router();
-const { Album, Artist} = require('../db');
+const router = require("express").Router();
+const { Album, Artist } = require("../db");
 
-router.get('/', async (req, res, next) => {
+router.get("/", async (req, res, next) => {
   try {
-    // find all albums
+    const artist = await Artist.getEverything();
+    res.send(artist);
   } catch (e) {
     next(e);
   }
 });
 // /students/:id
-router.get('/:id', async (req, res, next) => {
+router.get("/:id", async (req, res, next) => {
   try {
-
     //find individual album
-
-  } catch(e) {
+  } catch (e) {
     next(e);
   }
 });
